@@ -1,13 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Link Page</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <!-- Put Your Code -->
-        <img src="images/example.png" alt="Example Image">
-        <button onclick= "window.location.href='https://www.instagram.com';">My Instagram</button>
-        <script src="script.js"></script>
-    </body>
+<head>
+	<title>3분할 된 프레임</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.frame {
+			display: flex;
+			flex-direction: column;
+			width: 393px;
+			height: 852px;
+			margin: auto;
+		}
+
+		.frame div {
+			flex: 1;
+			border: 1px solid black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.frame div img {
+			width: 100%;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.modal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.8);
+			display: none;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.modal img {
+			max-width: 80%;
+			max-height: 80%;
+			border: 1px solid white;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="frame">
+		<div>
+			<img src="images/1.jpeg" alt="제주도" onclick= "window.location.href='https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%A0%9C%EC%A3%BC%EB%8F%84';">
+		</div>
+		<div>
+			<img src="images/2.jpeg" alt="링크" onclick= "window.location.href='https://www.instagram.com/ssoljjis/';">
+		</div>
+		<div>
+			<img src="images/3.jpeg" alt="벚꽃" onclick= "window.location.href='https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EB%B2%9A%EA%BD%83/';">
+		</div>
+	</div>
+
+	<div class="modal" onclick="hideModal()">
+		<img id="modalImg" src="">
+	</div>
+
+	<script>
+		function showModal(imgSrc) {
+			var modal = document.querySelector('.modal');
+			var modalImg = document.querySelector('#modalImg');
+			modalImg.src = imgSrc;
+			modal.style.display = 'flex';
+			modalImg.style.width = '80%';
+			modalImg.style.height = 'auto';
+		}
+
+		function hideModal() {
+			var modal = document.querySelector('.modal');
+			modal.style.display = 'none';
+		}
+	</script>
+</body>
 </html>
